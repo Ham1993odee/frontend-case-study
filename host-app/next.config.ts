@@ -12,7 +12,11 @@ const nextConfig: NextConfig = {
           productsRemote: "productsRemote@http://localhost:3001/_next/static/chunks/remoteEntry.js",
           basketRemote: "basketRemote@http://localhost:3002/remoteEntry.js",
         },
-        shared: {},
+        shared: {
+          // Share compatible versions of these dependencies
+          react: { singleton: true, requiredVersion: "^19.0.0" },
+          "react-dom": { singleton: true, requiredVersion: "^19.0.0" }
+        },
         extraOptions: {},
       })
     );

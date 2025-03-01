@@ -7,16 +7,15 @@ const nextConfig: NextConfig = {
     
     config.plugins.push(
       new NextFederationPlugin({
-        name: "productsRemote",
-        filename: "static/chunks/remoteEntry.js",
+        name: "basketRemote",
+        filename: "remoteEntry.js",
         exposes: {
-          "./Products": "./src/components/Products.tsx",
+          "./Basket": "./src/components/Basket.tsx",
         },
         shared: {
           react: { singleton: true, requiredVersion: "^19.0.0" },
           "react-dom": { singleton: true, requiredVersion: "^19.0.0" }
         },
-        extraOptions: {},
       })
     );
 

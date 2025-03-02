@@ -1,4 +1,4 @@
-import { ReduxProvider } from '../src/components/reduxProvider';
+import { ReduxProvider } from '../src/components/ReduxProvider';
 
 export default function RootLayout({
   children,

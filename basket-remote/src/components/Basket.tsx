@@ -1,17 +1,14 @@
 'use client';
 
 import React, { useContext } from 'react';
-import { useSelector } from 'react-redux';
-import { Card, List, Button } from 'antd';
-import { BasketContext } from 'host/BasketContext';
-import { RootState } from '../redux/store';
-import { removeFromBasket } from '../redux/basketSlice';
-import { useDispatch } from 'react-redux';
+import { List, Button } from 'antd';
+import { BasketContext, BasketItem, BasketContextType } from 'host/BasketContext';
 
 const Basket = () => {
   const { basketItems, removeFromBasket } = useContext(BasketContext);
   
-  const totalPrice = basketItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const totalPrice = basketItems.reduce((sum: number, item: BasketItem) => 
+    sum + item.price * item.quantity, 0);
   
   return (
     <div className="basket-container">
@@ -23,7 +20,7 @@ const Basket = () => {
           <List
             itemLayout="horizontal"
             dataSource={basketItems}
-            renderItem={(item) => (
+            renderItem={(item: BasketItem) => (
               <List.Item
                 actions={[
                   <Button 

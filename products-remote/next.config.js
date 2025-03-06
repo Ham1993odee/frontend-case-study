@@ -1,7 +1,7 @@
-import type { NextConfig } from "next";
-import { NextFederationPlugin } from "@module-federation/nextjs-mf";
+const { NextFederationPlugin } = require("@module-federation/nextjs-mf");
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   webpack: (config, { isServer }) => {
     config.plugins = config.plugins || [];
     
@@ -13,8 +13,8 @@ const nextConfig: NextConfig = {
           "./Products": "./src/components/Products.tsx",
         },
         shared: {
-          react: { singleton: true, requiredVersion: "^19.0.0" },
-          "react-dom": { singleton: true, requiredVersion: "^19.0.0" }
+          react: { singleton: true, requiredVersion: "^18.0.0" },
+          "react-dom": { singleton: true, requiredVersion: "^18.0.0" }
         },
         extraOptions: {},
       })
@@ -24,4 +24,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

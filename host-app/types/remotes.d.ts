@@ -1,29 +1,29 @@
 declare module "productsRemote/Products" {
-    const Products: React.ComponentType;
-    export default Products;
+  const Products: React.ComponentType;
+  export default Products;
+}
+
+declare module "basketRemote/Basket" {
+  const Basket: React.ComponentType;
+  export default Basket;
+}
+
+declare module "host/BasketContext" {
+  import { Context } from "react";
+  
+  export interface BasketItem {
+    id: number;
+    title: string;
+    price: number;
+    quantity: number;
+    [key: string]: any;
   }
   
-  declare module "basketRemote/*" {
-    const any: any;
-    export default any;
+  export interface BasketContextType {
+    basketItems: BasketItem[];
+    addToBasket: (product: any) => void;
+    removeFromBasket: (productId: number) => void;
   }
-
-  declare module "host/BasketContext" {
-    import { Context } from "react";
-    
-    interface BasketItem {
-      id: number;
-      title: string;
-      price: number;
-      quantity: number;
-      [key: string]: any;
-    }
-    
-    interface BasketContextType {
-      basketItems: BasketItem[];
-      addToBasket: (product: any) => void;
-      removeFromBasket: (productId: number) => void;
-    }
-    
-    export const BasketContext: Context<BasketContextType>;
-  }
+  
+  export const BasketContext: Context<BasketContextType>;
+}

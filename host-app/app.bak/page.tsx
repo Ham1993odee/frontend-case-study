@@ -1,8 +1,7 @@
-"use client"; // Required for client-side dynamic import
+// "use client"; // This line can be removed in Pages Router
 
 import dynamic from "next/dynamic";
-import { useState } from "react";
-import { createContext } from "react";
+import { useState, createContext } from "react";
 
 // Create a context for sharing basket state
 export const BasketContext = createContext({
